@@ -1,0 +1,1 @@
+class Message(val number: String, val position: String) {}
