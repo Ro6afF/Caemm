@@ -4,9 +4,9 @@ import org.apache.ignite.configuration.CacheConfiguration
 import org.apache.ignite.configuration.IgniteConfiguration
 
 object CacheConfig {
-    fun posConf(): CacheConfiguration<String, String> {
-        val cfg = CacheConfiguration<String, String>("positions")
-        cfg.setIndexedTypes(String::class.java, String::class.java)
+    fun posConf(): CacheConfiguration<String, Message> {
+        val cfg = CacheConfiguration<String, Message>("positions")
+        cfg.setIndexedTypes(String::class.java, Message::class.java)
         cfg.cacheMode = CacheMode.PARTITIONED
         return cfg
     }

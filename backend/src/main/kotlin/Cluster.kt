@@ -1,8 +1,6 @@
 import org.apache.ignite.Ignition
 import org.apache.ignite.cache.affinity.AffinityUuid
-import java.util.concurrent.TimeUnit
 import org.apache.ignite.cache.query.ContinuousQuery
-import org.apache.ignite.cache.query.SqlQuery
 
 
 object Cluster {
@@ -14,8 +12,8 @@ object Cluster {
         val qry = ContinuousQuery<AffinityUuid, Message>()
         qry.setLocalListener { evts ->
             evts.forEach { e ->
-                println("CQRY: ${e.value.number}: ${e.value.position}")
-                posCache.put(e.value.number, e.value.position)
+                println("CQRY: ${e.value.trainID}: ${e.value.position}")
+                posCache.put(e.value.trainID, e.value)
             }
         }
         msgCache.query(qry)
