@@ -18,14 +18,21 @@ object Server {
         val msgCache = ignite.getOrCreateCache(CacheConfig.msgConf())
         val msgServer = embeddedServer(Netty, port = 8080) {
             routing {
-                get("/pos") {// TODO: POST
+                get("/pos") {
+                    // TODO: POST
+                    println("hir I get")
                     val msg = Message(
-                        call.request.queryParameters["num"] ?: throw NullPointerException("No number specified"),
-                        call.request.queryParameters["pos"] ?: throw NullPointerException("No position specified"),
+                        call.request.queryParameters["id"] ?: throw NullPointerException("No number specified"),
+                        Position(
+                            call.request.queryParameters["lat"]?.toDouble()
+                                ?: throw NullPointerException("No number specified"),
+                            call.request.queryParameters["lon"]?.toDouble()
+                                ?: throw NullPointerException("No number specified")
+                        ),
                         LocalDateTime.now(), call.request.queryParameters["stat"]
                     )
                     println("Number: ${msg.trainID}\nPosition: ${msg.position}")
-
+                    println(msg)
                     msgCache.put(AffinityUuid(msg), msg)
                 }
             }
@@ -34,8 +41,10 @@ object Server {
         val restServer = embeddedServer(Netty, port = 8081) {
             routing {
                 get("/stat") {
-                    println("Number: ${call.request.queryParameters["num"]}")
-                    call.respond(posCache.get(call.request.queryParameters["num"]))
+                    //println("Number: ${call.request.queryParameters["id"]}")
+                    val tr = posCache.get(call.request.queryParameters["id"])
+                    println(tr)
+                    call.respondText(tr.toString())
                 }
             }
         }
