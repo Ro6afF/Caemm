@@ -1,4 +1,5 @@
 import io.ktor.application.call
+import io.ktor.response.respond
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
@@ -32,9 +33,9 @@ object Server {
 
         val restServer = embeddedServer(Netty, port = 8081) {
             routing {
-                get("/pos") {
+                get("/stat") {
                     println("Number: ${call.request.queryParameters["num"]}")
-                    call.respondText(posCache.get(call.request.queryParameters["num"]).position)
+                    call.respond(posCache.get(call.request.queryParameters["num"]))
                 }
             }
         }
