@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../paper/uml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/uml.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.TrainMocker">
+  <component name="RunManager" selected="Kotlin.Server">
     <configuration name="Cluster" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="caemm.main" />
       <option name="VM_PARAMETERS" />
@@ -90,9 +88,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.TrainMocker" />
         <item itemvalue="Kotlin.Cluster" />
         <item itemvalue="Kotlin.Server" />
+        <item itemvalue="Kotlin.TrainMocker" />
       </list>
     </recent_temporary>
   </component>

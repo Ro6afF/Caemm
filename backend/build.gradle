@@ -15,6 +15,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile group: 'io.ktor', name: 'ktor-server-netty', version: '1.2.3'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
     compile group: 'org.apache.ignite', name: 'ignite-core', version: '2.7.5'
     compile group: 'org.apache.ignite', name: 'ignite-spring', version: '2.7.5'
     compile group: 'org.apache.ignite', name: 'ignite-indexing', version: '2.7.5'

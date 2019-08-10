@@ -1,5 +1,5 @@
+import com.google.gson.Gson
 import io.ktor.application.call
-import io.ktor.response.respond
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
@@ -16,6 +16,7 @@ object Server {
         val ignite = Ignition.start(CacheConfig.igniteConfig())
         val posCache = ignite.getOrCreateCache(CacheConfig.posConf())
         val msgCache = ignite.getOrCreateCache(CacheConfig.msgConf())
+        val gson = Gson()
         val msgServer = embeddedServer(Netty, port = 8080) {
             routing {
                 get("/pos") {
@@ -44,7 +45,7 @@ object Server {
                     //println("Number: ${call.request.queryParameters["id"]}")
                     val tr = posCache.get(call.request.queryParameters["id"])
                     println(tr)
-                    call.respondText(tr.toString())
+                    call.respondText(gson.toJson(tr))
                 }
             }
         }
