@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="" />
+    <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../paper/uml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/uml.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -46,7 +48,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.Server">
+  <component name="RunManager" selected="Kotlin.Cluster">
     <configuration name="Cluster" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="caemm.main" />
       <option name="VM_PARAMETERS" />
