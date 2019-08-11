@@ -3,7 +3,7 @@ import org.apache.ignite.Ignition
 import org.apache.ignite.cache.affinity.AffinityUuid
 import org.apache.ignite.cache.query.ContinuousQuery
 
-class Aggregator : Processor {
+class Aggregator : IProcessor {
     private var ignite: Ignite? = null
         get() {
             return field
