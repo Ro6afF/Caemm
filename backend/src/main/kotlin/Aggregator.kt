@@ -18,7 +18,6 @@ class Aggregator : IProcessor {
         val qry = ContinuousQuery<AffinityUuid, Message>()
         qry.setLocalListener { evts ->
             evts.forEach { e ->
-                println("CQRY: ${e.value.trainID}: ${e.value.position}")
                 posCache?.put(e.value.trainID, e.value)
             }
         }

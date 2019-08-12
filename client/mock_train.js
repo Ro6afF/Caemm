@@ -1,16 +1,16 @@
 let xml = new XMLHttpRequest();
 let id = Number(prompt("TrainID"));
-let lat = 0;
-let lon = 0;
+let lat = 200;
+let lon = 200;
 
 function iter() {
     xml.open('GET', 'http://localhost:8080/pos?id='+id+'&lat='+lat+'&lon='+lon);
     xml.send();
     if (id % 2 === 0) {
-        lat += 0.001
+        lon += 10
     } else {
-        lon += 0.001
+        lat += 10
     }
 }
 
-setInterval(iter, 10000)
+setInterval(iter, 1000)

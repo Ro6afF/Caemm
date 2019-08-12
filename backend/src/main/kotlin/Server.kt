@@ -1,5 +1,6 @@
 import com.google.gson.Gson
 import io.ktor.application.call
+import io.ktor.response.header
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
@@ -21,7 +22,6 @@ object Server {
             routing {
                 get("/pos") {
                     // TODO: POST
-                    println("hir I get")
                     val msg = Message(
                         call.request.queryParameters["id"] ?: throw NullPointerException("No number specified"),
                         Position(
@@ -32,8 +32,6 @@ object Server {
                         ),
                         LocalDateTime.now(), call.request.queryParameters["stat"]
                     )
-                    println("Number: ${msg.trainID}\nPosition: ${msg.position}")
-                    println(msg)
                     msgCache.put(AffinityUuid(msg), msg)
                 }
             }
@@ -42,9 +40,8 @@ object Server {
         val restServer = embeddedServer(Netty, port = 8081) {
             routing {
                 get("/stat") {
-                    //println("Number: ${call.request.queryParameters["id"]}")
                     val tr = posCache.get(call.request.queryParameters["id"])
-                    println(tr)
+                    call.response.header("Access-Control-Allow-Origin", "*")
                     call.respondText(gson.toJson(tr))
                 }
             }
