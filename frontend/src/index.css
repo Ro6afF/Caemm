@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.navbar {
+    height: 80px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
