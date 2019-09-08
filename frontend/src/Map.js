@@ -2,12 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import * as d3 from 'd3';
 
-//const IMAGE_WIDTH = , IMAGE_HEIGHT = 
+const IMAGE_WIDTH = 2207, IMAGE_HEIGHT = 1374;
 
-function gpsCoordToScreenCoord(gpsCoords) {
+// Map corners:
+// Top left: 44.21962,22.35168
+// Bottom right: 41.179,28.510
+function gpsCoordToScreenCoord(gpsCoords, width, height) {
     return {
-        x: gpsCoords.lat,
-        y: gpsCoords.lon
+        x: gpsCoords.lon - 22.35168,
+        y: gpsCoords.lat - 44.21962
     }
 }
 
@@ -31,28 +34,28 @@ class Map extends React.Component {
     // }
 
     componentDidMount() {
-        let width = Math.floor(window.innerWidth);
-        let height = Math.floor(window.innerHeight * 93 / 100);
-        svg = d3.select('#map').append('svg').attr('width', width).attr('height', height).call(d3.zoom().scaleExtent([0.1, 10]).on('zoom', function () {
+        this.width = Math.floor(window.innerWidth);
+        this.height = Math.floor(window.innerHeight * 93 / 100);
+        svg = d3.select('#map').append('svg').attr('width', this.width).attr('height', this.height).call(d3.zoom().scaleExtent([0.1, 10]).on('zoom', function () {
             svg.attr('transform', d3.event.transform)
         })).append('g');
 
         let img = svg.append('image').attr('xlink:href', 'bulgaria2.svg').attr('x', 0).attr('y', 0);
-        if (width > height) {
-            width = height * 1.6;
-            while(width > window.innerWidth) {
-                width --;
+        if (this.width > this.height) {
+            this.width = this.height * 1.6;
+            while(this.width > window.innerWidth) {
+                this.width --;
             }
-            height = width / 1.6;
+            this.height = this.width / 1.6;
         } else {
-            height = width / 1.6;
-            while(height > window.innerHeight) {
-                height --;
+            this.height = this.width / 1.6;
+            while(this.height > window.innerHeight) {
+                this.height --;
             }
-            width = height * 1.6;
+            this.width = this.height * 1.6;
         }
-        img.attr('width', width);
-        img.attr('height', height);
+        img.attr('width', this.width);
+        img.attr('height', this.height);
         let mocky = 500;
         let mockx = 530;
 
