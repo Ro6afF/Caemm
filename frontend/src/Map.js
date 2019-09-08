@@ -15,12 +15,14 @@ let svg;
 
 class Map extends React.Component {
     getTrains(a) {
-        axios.get('http://localhost:8081/stat?id=1').then(response =>
-            a.t1.attr('cx', response.data.position.lon).attr('cy', response.data.position.lat)
-        );
-        axios.get('http://localhost:8081/stat?id=2').then(response =>
-            a.t2.attr('cx', response.data.position.lon).attr('cy', response.data.position.lat)
-        );
+        axios.get('http://localhost:8081/stat?id=1').then(response => {
+            let coo = gpsCoordToScreenCoord(response.data.position);
+            a.t1.attr('cx', coo.x).attr('cy', coo.y);
+        });
+        axios.get('http://localhost:8081/stat?id=2').then(response => {
+            let coo = gpsCoordToScreenCoord(response.data.position);
+            a.t2.attr('cx', coo.x).attr('cy', coo.y);
+        });
     }
 
     // animtrain(a) {
@@ -30,18 +32,27 @@ class Map extends React.Component {
 
     componentDidMount() {
         let width = Math.floor(window.innerWidth);
-        let height = Math.floor(window.innerHeight * 95 / 100);
+        let height = Math.floor(window.innerHeight * 93 / 100);
         svg = d3.select('#map').append('svg').attr('width', width).attr('height', height).call(d3.zoom().scaleExtent([0.1, 10]).on('zoom', function () {
             svg.attr('transform', d3.event.transform)
-        }))
-            .append('g');
+        })).append('g');
 
         let img = svg.append('image').attr('xlink:href', 'bulgaria2.svg').attr('x', 0).attr('y', 0);
         if (width > height) {
-            img.attr('height', height);
+            width = height * 1.6;
+            while(width > window.innerWidth) {
+                width --;
+            }
+            height = width / 1.6;
         } else {
-            img.attr('width', width);
+            height = width / 1.6;
+            while(height > window.innerHeight) {
+                height --;
+            }
+            width = height * 1.6;
         }
+        img.attr('width', width);
+        img.attr('height', height);
         let mocky = 500;
         let mockx = 530;
 

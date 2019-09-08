@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/vili.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Aggregator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Aggregator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Cluster.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Cluster.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/IProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/IProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Map.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.Cluster">
+  <component name="RunManager" selected="Kotlin.Server">
     <configuration name="Cluster" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="caemm.main" />
       <option name="VM_PARAMETERS" />

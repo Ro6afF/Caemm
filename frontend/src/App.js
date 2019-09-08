@@ -1,27 +1,40 @@
 import React from 'react';
 import Map from './Map';
-import { Menu, MenuHeader } from 'semantic-ui-react';
+import About from './About';
+import { Menu } from 'semantic-ui-react';
+import NotFoundPage from './NotFoundPage';
+import { Router, Route, Switch } from'react-router-dom';
+import { createBrowserHistory } from 'history';
+
 
 class App extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            activeItem: 'home'
-        }
+        this.history = createBrowserHistory();
     }
+
+    click(loc) {
+        this.history.push(loc);
+        console.log(this.history)
+    }
+
     render() {
         return (
-            <span>
+            <Router history={this.history}>
                 <div className="navbar">
                     <Menu position="right" size="huge">
                         <Menu.Item><b><h3>CAEMM</h3></b></Menu.Item>
-                        <Menu.Item>Map</Menu.Item>
+                        <Menu.Item onClick={() => this.click('/')}>Home</Menu.Item>
                         <Menu.Item disabled>Trips</Menu.Item>
-                        <Menu.Item disabled>About</Menu.Item>
+                        <Menu.Item onClick={() => this.click('/about')}>About</Menu.Item>
                     </Menu>
                 </div>
-                <Map />
-            </span>
+                <Switch>
+                    <Route exact path="/" component={Map} />
+                    <Route path="/about" component={About} />
+                    <Route component={NotFoundPage} />
+                </Switch>
+            </Router>
         );
     }
 }
