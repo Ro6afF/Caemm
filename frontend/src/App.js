@@ -11,16 +11,17 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="navbar">
-                <Menu position="right" size="huge">
-                    <Menu.Item><b><h3>CAEMM</h3></b></Menu.Item>
-                    <Menu.Item>Map</Menu.Item>
-                    <Menu.Item disabled>About</Menu.Item>
-                    <Menu.Item disabled>Trips</Menu.Item>
-                    <Menu.Item disabled>Trips</Menu.Item>
-                </Menu>
+            <span>
+                <div className="navbar">
+                    <Menu position="right" size="huge">
+                        <Menu.Item><b><h3>CAEMM</h3></b></Menu.Item>
+                        <Menu.Item>Map</Menu.Item>
+                        <Menu.Item disabled>Trips</Menu.Item>
+                        <Menu.Item disabled>About</Menu.Item>
+                    </Menu>
+                </div>
                 <Map />
-            </div>
+            </span>
         );
     }
 }

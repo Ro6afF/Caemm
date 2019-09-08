@@ -5,13 +5,8 @@ import org.apache.ignite.cache.query.ContinuousQuery
 
 class Aggregator : IProcessor {
     private var ignite: Ignite? = null
-        get() {
-            return field
-        }
-        set(v) {
-            field = v
-        }
-    fun run() {
+
+    override fun start() {
         ignite = Ignition.start(CacheConfig.igniteConfig())
         val msgCache = ignite?.getOrCreateCache(CacheConfig.msgConf())
         val posCache = ignite?.getOrCreateCache(CacheConfig.posConf())
@@ -24,7 +19,7 @@ class Aggregator : IProcessor {
         msgCache?.query(qry)
     }
 
-    fun stop() {
+    override fun stop() {
         Ignition.stop(true)
     }
 }
