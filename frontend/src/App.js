@@ -15,7 +15,6 @@ class App extends React.Component {
 
     click(loc) {
         this.history.push(loc);
-        console.log(this.history)
     }
 
     render() {
