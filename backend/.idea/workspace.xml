@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd851c96-c048-43dd-9833-e659b19343eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/vili.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Server.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/mock_train.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/mock_train.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Map.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Cluster" />
         <item itemvalue="Kotlin.Server" />
+        <item itemvalue="Kotlin.Cluster" />
         <item itemvalue="Kotlin.TrainMocker" />
       </list>
     </recent_temporary>

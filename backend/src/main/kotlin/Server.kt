@@ -10,6 +10,7 @@ import org.apache.ignite.Ignition
 import org.apache.ignite.cache.affinity.AffinityUuid
 import java.lang.NullPointerException
 import java.time.LocalDateTime
+import org.apache.ignite.cache.query.ScanQuery
 
 object Server {
     @JvmStatic
@@ -39,6 +40,11 @@ object Server {
 
         val restServer = embeddedServer(Netty, port = 8081) {
             routing {
+                get("/all") {
+                    val arr = posCache.query(ScanQuery<String, Message> { _, _ -> true}).all.map {x -> x.value}
+                    call.response.header("Access-Control-Allow-Origin", "*")
+                    call.respondText(gson.toJson((arr)))
+                }
                 get("/stat") {
                     val tr = posCache.get(call.request.queryParameters["id"])
                     call.response.header("Access-Control-Allow-Origin", "*")
